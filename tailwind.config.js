@@ -4,18 +4,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        'rich-black': '0B0D17',
-        'periwinkle': 'D0D6F9',
+        'rich-black': '#0B0D17',
+        'periwinkle': '#D0D6F9',
+        'white': '#FFFFFF',
       },
       fontFamily: {
         bellefair: ["Bellefair", "serif"],
         barlow: ["Barlow Condensed", "sans-serif"]
       },
-      backgroundImage: {
-        'home-bg': "url('./src/assets/home/background-home-desktop.jpg')",
-        'home-bg-s': "url('./src/assets/home/background-home-mobile.jpg')",
-        'home-bg-m': "url('./src/assets/home/background-home-tablet.jpg')",
-      }
     },
   },
   plugins: [],
