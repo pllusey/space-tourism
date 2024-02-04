@@ -1,12 +1,10 @@
+import Button from "../components/Button";
 import Navbar from "../components/Navbar";
 
 export default function Root() {
   return (
     <>
-      <div className="h-screen bg-[url('/src/assets/home/background-home-desktop.jpg')] bg-center bg-no-repeat bg-cover text-white">
-        <header className="mb-24">
-          <Navbar />
-        </header>
+      <div className="h-screen bg-home-lg bg-center bg-no-repeat bg-cover text-white">
         <main className="flex">
           <div className="relative left-[15%] top-44 max-w-[450px]">
             <h5 className="font-barlow text-[28px] font-thin">
@@ -20,9 +18,7 @@ export default function Root() {
               this world experience!
             </p>
           </div>
-          <button className="absolute left-[65%] top-[54%] font-bellefair text-4xl bg-white text-black w-72 h-72 rounded-full">
-            EXPLORE
-          </button>
+          <Button />
         </main>
       </div>
     </>
