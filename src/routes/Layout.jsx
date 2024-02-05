@@ -4,13 +4,9 @@ import Navbar from "../components/Navbar";
 
 export default function Layout() {
   return (
-    <div>
-      <nav className="h-0">
+    <div className="text-white">
         <Navbar />
-      </nav>
-      <main>
         <Outlet />
-      </main>
     </div>
   );
 }

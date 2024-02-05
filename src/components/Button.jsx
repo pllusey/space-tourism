@@ -1,13 +1,21 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function Button() {
-  return (
-    <div className="absolute transition left-[65%] top-[54%] group">
-      <div className="fixed w-72 h-72 rounded-full bg-white bg-opacity-[.1] group-hover:scale-150 ease-in-out duration-500"></div>
-      <button className="fixed font-bellefair text-4xl bg-white text-black w-72 h-72 rounded-full cursor-pointer
-      group-hover:scale-95 duration-300">
-        <Link to="/destination">EXPLORE</Link>
-      </button>
+    return (
+    <div className="absolute transition left-[65vw] top-[50vh] group">
+      
+      <motion.button 
+      id="btn" 
+      className="fixed font-bellefair text-4xl bg-white text-rich-black w-[30vh] h-[30vh] rounded-full cursor-pointer"
+      whileHover={{
+        scale: 0.95,
+        'box-shadow': ['red', '9px', '9px'],
+        transition: ['300ms', 'ease'],
+      }}
+      whileTap={{scale: 0.9}}>
+        <Link to="#">EXPLORE</Link>
+      </motion.button>  
     </div>
   );
 }
