@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <div className="absolute flex justify-between items-center w-screen top-[5vh] h-40">
+    <div className="absolute flex justify-between items-center w-screen h-[25vh]">
       <Link
         to="/"
         className="scale-[1.1] transition hover:scale-[1.3] hover:rotate-180 ease duration-500 relative ml-[5vw]"
@@ -10,7 +10,7 @@ function Navbar() {
         <img src="/assets/shared/logo.svg" alt="" />
       </Link>
       <span className="relative left-[4vw] w-[40vw] h-[0.0625rem] bg-white bg-opacity-15 z-10"></span>
-      <div className="w-7/12 h-[10vh] relative backdrop-blur-lg bg-white bg-opacity-[0.04] backdrop">
+      <div className="w-7/12 h-[12vh] relative backdrop-blur-lg bg-white bg-opacity-[0.04] backdrop">
         <ul className="h-full pr-48 pl-36 flex justify-between">
           <li className="h-full">
             <NavLink

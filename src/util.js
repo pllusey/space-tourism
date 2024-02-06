@@ -74,24 +74,24 @@ export const data = {
   technology: [
     {
       id: 0,
-      name: "LAUNCH VEHICLE",
-      image: "/assets/technology/image-launch-vehicle.png",
+      name: "Launch Vehicle",
+      image: "/assets/technology/image-launch-vehicle-portrait.jpg",
       description:
-        "See our planet as you've never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you're there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
+        "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!",
     },
     {
       id: 1,
-      name: "Mars",
-      image: "/assets/technology/image-moon.png",
+      name: "Spaceport",
+      image: "/assets/technology/image-spaceport-portrait.jpg",
       description:
-        "Don't forget to pack your hiking boots. You'll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It's two and half times the size of Everest!",
+        "A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth’s rotation for launch.",
     },
     {
       id: 2,
-      name: "Europa",
-      image: "/assets/technology/image-moon.png",
+      name: "Space Capsule",
+      image: "/assets/technology/image-space-capsule-portrait.jpg",
       description:
-        "The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover's dream. With an icy surface, it's perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.",
+        "A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth’s rotation for launch.",
     },
   ],
 };
