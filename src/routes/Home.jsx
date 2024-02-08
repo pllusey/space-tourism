@@ -3,8 +3,8 @@ import Button from "../components/Button";
 export default function Root() {
   return (
     <>
-      <div className="h-screen max-h-screen bg-home-lg bg-center bg-no-repeat bg-cover  transition-all duration-300">
-        <div className="w-[30vw] absolute flex-col items-center justify-center left-[10vw] top-[40vh]">
+      <div className="h-screen max-h-screen bg-home-lg bg-center bg-no-repeat bg-cover transition-all duration-300">
+        <div className="w-[30vw] flex-col items-center justify-center ml-[13vw] pt-[35vh]">
           <h5 className="w-full font-barlow text-[2vw] font-thin tracking-widest">
             SO, YOU WANT TO TRAVEL TO
           </h5>

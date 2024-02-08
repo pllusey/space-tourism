@@ -1,6 +1,32 @@
-import { data } from "../util";
+import ContentSelector from "../components/ContentSelector";
+import { useState } from "react";
 
-export default function Technology() {
+export default function Technology({
+  technology,
+  selectTechnology,
+  selectedTechnology,
+  selectPage,
+  selectedPage,
+}) {
+  const { name, description, image } = technology;
+  const [selectedName, setSelectedName] = useState(technology[0].name);
+  const [selectedDescription, setSelectedDescription] = useState(
+    technology[0].description
+  );
+  const [selectedImage, setSelectedImage] = useState(technology[0].image);
+
+  const selectName = (name) => {
+    setSelectedName(name);
+  };
+
+  const selectDescription = (description) => {
+    setSelectedDescription(description);
+  };
+
+  const selectImage = (image) => {
+    setSelectedImage(image);
+  };
+
   return (
     <>
       <div className="h-screen bg-technology-lg bg-cover bg-center">
@@ -9,39 +35,29 @@ export default function Technology() {
             <span className="pr-3 font-bold opacity-30">03</span> SPACE LAUNCH
             101
           </h3>
-          <div className="flex  w-[50vw]">
-            <ul className="flex flex-col justify-between px-[3vw]">
-              <li>
-                <button className="border border-opacity-35  rounded-full w-[4.5rem] h-[4.5rem]">
-                  1
-                </button>
-              </li>
-              <li>
-                <button className="border border-opacity-35  rounded-full w-[4.5rem] h-[4.5rem]">
-                  2
-                </button>
-              </li>
-              <li>
-                <button className="border border-opacity-35  rounded-full w-[4.5rem] h-[4.5rem]">
-                  3
-                </button>
-              </li>
-            </ul>
+          <div className="flex w-[50vw]">
+            <ContentSelector
+              technology={technology}
+              selectDescription={selectDescription}
+              selectName={selectName}
+              selectImage={selectImage}
+              selectTechnology={selectTechnology}
+            />
             <div>
               <h4 className="font-barlow text-xl tracking-widest font-extralight pb-5">
                 THE TERMINOLOGY...
               </h4>
               <h1 className="font-bellefair text-6xl pb-6">
-                {data.technology[0].name.toUpperCase()}
+                {selectedName.toUpperCase()}
               </h1>
               <p className="text-lg font-extralight tracking-wide leading-loose w-[30vw]">
-                {data.technology[0].description}
+                {selectedDescription}
               </p>
             </div>
           </div>
         </div>
         <img
-          src={data.technology[0].image}
+          src={selectedImage}
           alt=""
           className="absolute top-[30vh] right-0 h-[60vh] w-[35vw]"
         />

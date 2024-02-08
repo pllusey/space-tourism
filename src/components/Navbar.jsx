@@ -9,7 +9,7 @@ function Navbar() {
       >
         <img src="/assets/shared/logo.svg" alt="" />
       </Link>
-      <span className="relative left-[4vw] w-[40vw] h-[0.0625rem] bg-white bg-opacity-15 z-10"></span>
+      <span className="relative left-[10vh] w-[35vw] h-[0.0625rem] bg-white bg-opacity-15 z-10"></span>
       <div className="w-7/12 h-[12vh] relative backdrop-blur-lg bg-white bg-opacity-[0.04] backdrop">
         <ul className="h-full pr-48 pl-36 flex justify-between">
           <li className="h-full">

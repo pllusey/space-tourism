@@ -13,15 +13,26 @@ import Destination from "./routes/Destination";
 import Crew from "./routes/Crew";
 import Technology from "./routes/Technology";
 import Layout from "./routes/Layout";
+import { data } from "./util";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-      <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
-        <Route index element={<Home />} />
-        <Route path="/destination" element={<Destination />} />
-        <Route path="/crew" element={<Crew />}/>
-        <Route path="/technology" element={<Technology />}/>
-      </Route>
+    <Route
+      path="/"
+      element={<Layout data={data} />}
+      errorElement={<ErrorPage />}
+    >
+      <Route index element={<Home />} />
+      <Route
+        path="/destination"
+        element={<Destination destinations={data.destinations} />}
+      />
+      <Route path="/crew" element={<Crew crew={data.crew} />} />
+      <Route
+        path="/technology"
+        element={<Technology technology={data.technology} />}
+      />
+    </Route>
   )
 );
 

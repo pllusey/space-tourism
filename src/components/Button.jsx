@@ -14,7 +14,7 @@ export default function Button() {
         transition: ['300ms', 'ease'],
       }}
       whileTap={{scale: 0.9}}>
-        <Link to="#">EXPLORE</Link>
+        <Link to="/destination">EXPLORE</Link>
       </motion.button>  
     </div>
   );
