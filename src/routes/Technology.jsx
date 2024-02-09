@@ -1,13 +1,14 @@
-import ContentSelector from "../components/ContentSelector";
+import ContentSelector from "../components/ContentSelector/ContentSelector";
 import { useState } from "react";
 
 export default function Technology({
   technology,
   selectTechnology,
   selectedTechnology,
-  selectPage,
-  selectedPage,
+  pageName,
 }) {
+  const currentPage = pageName
+
   const { name, description, image } = technology;
   const [selectedName, setSelectedName] = useState(technology[0].name);
   const [selectedDescription, setSelectedDescription] = useState(
@@ -41,7 +42,7 @@ export default function Technology({
               selectDescription={selectDescription}
               selectName={selectName}
               selectImage={selectImage}
-              selectTechnology={selectTechnology}
+              currentPage={currentPage}
             />
             <div>
               <h4 className="font-barlow text-xl tracking-widest font-extralight pb-5">

@@ -1,6 +1,6 @@
-import Button from "../components/Button";
+import Button from "../components/Button/Button";
 
-export default function Root() {
+export default function Home() {
   return (
     <>
       <div className="h-screen max-h-screen bg-home-lg bg-center bg-no-repeat bg-cover transition-all duration-300">

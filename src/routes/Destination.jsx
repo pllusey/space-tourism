@@ -1,22 +1,23 @@
-import { useEffect, useState } from "react";
-import ContentSelector from "../components/ContentSelector.jsx";
+import { useState } from "react";
+import ContentSelector from "../components/ContentSelector/ContentSelector.jsx";
 
 export default function Destination({
   destinations,
   selectDestination,
   selectedDestination,
+  pageName,
 }) {
-  const pageName = "Destination"
+  const currentPage = pageName
   const { name, description, image, distance, time } = destinations;
-  const [selectedName, setSelectedName] = useState(selectedDestination?.name);
+  const [selectedName, setSelectedName] = useState(destinations[0].name);
   const [selectedDescription, setSelectedDescription] = useState(
-    selectedDestination?.description
+    destinations[0].description
   );
-  const [selectedImage, setSelectedImage] = useState(destinations?.image);
+  const [selectedImage, setSelectedImage] = useState(destinations[0].image);
   const [selectedDistance, setSelectedDistance] = useState(
-    destinations?.distance
+    destinations[0].distance
   );
-  const [selectedTime, setSelectedTime] = useState(destinations?.time);
+  const [selectedTime, setSelectedTime] = useState(destinations[0].time);
 
   const selectName = (name) => {
     setSelectedName(name);
@@ -53,15 +54,15 @@ export default function Destination({
         </div>
         <div className="absolute bottom-[10vh] right-[15vw] w-[27vw] h-[60vh]">
           <ContentSelector
+            currentPage={currentPage}
             destinations={destinations}
             selectDescription={selectDescription}
             selectName={selectName}
             selectImage={selectImage}
             selectDistance={selectDistance}
             selectTime={selectTime}
-            selectDestination={selectDestination}
           />
-          <h1 className="text-8xl font-bellefair py-[5vh]">{selectedName}</h1>
+          <h1 className="text-8xl font-bellefair py-[5vh]">{selectedName.toUpperCase()}</h1>
           <p className=" font-light text-sm opacity-70 tracking-wider leading-loose pb-14">
             {selectedDescription}
           </p>

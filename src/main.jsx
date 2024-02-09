@@ -25,12 +25,12 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route
         path="/destination"
-        element={<Destination destinations={data.destinations} />}
+        element={<Destination pageName={"Destination"} destinations={data.destinations} />}
       />
-      <Route path="/crew" element={<Crew crew={data.crew} />} />
+      <Route path="/crew"element={<Crew crew={data.crew}  pageName={"Crew"} />} />
       <Route
         path="/technology"
-        element={<Technology technology={data.technology} />}
+        element={<Technology pageName={"Technology"} technology={data.technology} />}
       />
     </Route>
   )

@@ -1,16 +1,22 @@
 import { Outlet } from "react-router-dom";
-import { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
+import { useState } from "react";
+import Navbar from "../components/Navbar/Navbar";
 
-export default function Layout(data) {
-  const [pageName, setPageName] = useState("");
-  const selectPage = () => {
-    let pageArr = []
-    
-  }
-  const [selectedDestination, setSelectedDestination] = useState('');
-  const [selectedCrew, setSelectedCrew] = useState(data.crew);
-  const [selectedTecnology, setSelectedTechnology] = useState(data.technology);
+export default function Layout({ data }) {
+  const { destinations, crew, technology } = data;
+  const [pages, setPages] = useState({
+    destinations: [],
+    crew: [],
+    technology: [],
+  });
+
+  const [selectedDestination, setSelectedDestination] = useState(
+    data.destinations[0]
+  );
+  const [selectedCrew, setSelectedCrew] = useState(data.crew[0]);
+  const [selectedTechnology, setSelectedTechnology] = useState(
+    data.technology[0]
+  );
 
   const selectDestination = (destination) => {
     setSelectedDestination(destination);
@@ -18,22 +24,22 @@ export default function Layout(data) {
   const selectCrew = (crew) => {
     setSelectedCrew(crew);
   };
-  const selectTechology = (technology) => {
+  const selectTechnology = (technology) => {
     setSelectedTechnology(technology);
   };
 
   return (
     <div className="text-white">
-      <Navbar />
+      <header className="absolute w-screen h-[20vh]">
+        <Navbar />
+      </header>
       <Outlet
         selectDestination={selectDestination}
         selectedDestination={selectedDestination}
         selectCrew={selectCrew}
         selectedCrew={selectedCrew}
-        selectTechology={selectTechology}
-        selectedTecnology={selectedTecnology}
-        // selectPage={selectPage}
-        // selectedPage={selectedPage}
+        selectTechnology={selectTechnology}
+        selectedTechnology={selectedTechnology}
       />
     </div>
   );

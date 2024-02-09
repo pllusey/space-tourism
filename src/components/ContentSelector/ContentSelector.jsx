@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function ContentSelector({
   destinations,
   crew,
@@ -11,20 +13,22 @@ export default function ContentSelector({
   selectDestination,
   selectCrew,
   selectTechnology,
-  selectedPage
+  currentPage,
 }) {
   return (
     <>
       <div>
-        {selectedPage === "Destination" && (
+        {currentPage === "Destination" && (
           <>
             {destinations.map((destination) => (
-              <button
+              <motion.button
+                whileHover={{
+                  
+                }}
                 key={destination.id}
                 className="font-barlow font-light text-xl tracking-wider w-fit pr-[2vw] pb-3"
                 onClick={() => {
-                  selectDestination(),
-                    selectName(destination.name),
+                  selectName(destination.name),
                     selectDescription(destination.description),
                     selectImage(destination.image),
                     selectDistance(destination.distance),
@@ -32,45 +36,46 @@ export default function ContentSelector({
                 }}
               >
                 {destination.name.toUpperCase()}
-              </button>
+              </motion.button>
             ))}
           </>
         )}
-        {/* {selectedPage === "Crew" && (
+
+        {currentPage === "Crew" && (
           <>
-            {crew.map((member) => (
-              <button
-                key={member.id}
-                onClick={() => {
-                  selectCrew(),
-                    selectName(member.name.toUpperCase()),
-                    selectDescription(member.description),
-                    selectImage(member.image),
-                    selectRole(member.role.toUpperCase());
-                }}
-              >
-                {member.name.toUpperCase()}
-              </button>
-            ))}
+            <ul className="flex justify-between">
+              {crew.map((member) => (
+                <motion.button
+                  key={member.id}
+                  className="w-4 h-4 rounded-full bg-white bg-opacity-50"
+                  onClick={() => {
+                    selectName(member.name),
+                      selectDescription(member.description),
+                      selectImage(member.image),
+                      selectRole(member.role);
+                  }}
+                ></motion.button>
+              ))}
+            </ul>
           </>
         )}
-        {selectedPage === "Technology" && (
+
+        {currentPage === "Technology" && (
           <>
             {technology.map((tech) => (
-              <button
+              <motion.button
                 key={tech.id}
                 onClick={() => {
-                  selectTechnology(),
-                    selectName(tech.name),
+                  selectName(tech.name),
                     selectDescription(tech.description),
                     selectImage(tech.image);
                 }}
               >
                 {tech.id + 1}
-              </button>
+              </motion.button>
             ))}
           </>
-        )} */}
+        )}
       </div>
     </>
   );
