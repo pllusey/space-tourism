@@ -1,13 +1,12 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import ContentSelector from "../components/ContentSelector/ContentSelector.jsx";
+import NumberAnimation from "../components/NumberAnimation.jsx";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
-export default function Destination({
-  destinations,
-  selectDestination,
-  selectedDestination,
-  pageName,
-}) {
-  const currentPage = pageName
+export default function Destination({ destinations, pageName }) {
+  const currentPage = pageName;
+  const imgRef = useRef();
   const { name, description, image, distance, time } = destinations;
   const [selectedName, setSelectedName] = useState(destinations[0].name);
   const [selectedDescription, setSelectedDescription] = useState(
@@ -39,53 +38,53 @@ export default function Destination({
     setSelectedTime(time);
   };
 
+  useGSAP(() => {
+    let tl = gsap.timeline();
+
+    tl.from(".destination-img", { x: -50, opacity: 0, duration: 1.5 });
+    tl.from(".name", { x: 40, opacity: 0, duration: 2 }, "-=0.5");
+    tl.from(".description", { y: 20, opacity: 0, duration: 1 }, "-=1");
+    tl.from(".distance-and-time", { y: 20, opacity: 0, duration: 1.5 }, ">");
+  }, [selectedDescription]);
+
   return (
     <>
-      <div className="h-screen bg-destination-lg bg-center bg-no-repeat bg-cover">
-        <div className=" w-[55vw] h-screen font-barlow">
-          <h5 className="block pt-[25vh] text-2xl w-fit tracking-[.25rem] leading-relaxed ml-[13vw]">
+      <div className="h-screen bg-destination-lg bg-center bg-no-repeat bg-cover flex items-center gap-[5vw]">
+        <div className="relative w-[50vw] h-screen font-barlow ">
+          <h5 className="relative top-[20vh] left-[calc(100%-70%)] text-3xl tracking-[.5rem] font-[100]">
             <span className="pr-3 font-bold opacity-30">01</span> PICK YOUR
             DESTINATION
           </h5>
           <img
+            ref={imgRef}
             src={selectedImage}
-            className="ml-[20vw] mt-[10vh] w-[27vw] h-[50vh]"
+            className="destination-img aspect-square absolute bottom-28 right-[10%] lg:min-w-[25vw]"
           />
         </div>
-        <div className="absolute bottom-[10vh] right-[15vw] w-[27vw] h-[60vh]">
-          <ContentSelector
-            currentPage={currentPage}
-            destinations={destinations}
-            selectDescription={selectDescription}
-            selectName={selectName}
-            selectImage={selectImage}
-            selectDistance={selectDistance}
-            selectTime={selectTime}
-          />
-          <h1 className="text-8xl font-bellefair py-[5vh]">{selectedName.toUpperCase()}</h1>
-          <p className=" font-light text-sm opacity-70 tracking-wider leading-loose pb-14">
+        <div className="w-[23vw] h-[50vh] flex flex-col flex-shrink justify-between mt-[20vh]">
+          <div className="flex ">
+            <ContentSelector
+              currentPage={currentPage}
+              destinations={destinations}
+              selectDescription={selectDescription}
+              selectName={selectName}
+              selectImage={selectImage}
+              selectDistance={selectDistance}
+              selectTime={selectTime}
+            />
+          </div>
+          <h1 className="name text-8xl font-bellefair">
+            {selectedName.toUpperCase()}
+          </h1>
+          <p className="description font-light text-md opacity-70 tracking-wider leading-loose">
             {selectedDescription}
           </p>
-          <ul className="h-auto flex">
-            <li className="pt-4 pr-20">
-              <span className="font-barlow tracking-widest font-light opacity-50">
-                AVG. DISTANCE
-              </span>
-              <br />{" "}
-              <span className="font-bellefair text-2xl opacity-80">
-                {selectedDistance} KM
-              </span>
-            </li>
-            <li className="pt-4 pr-20">
-              <span className="font-barlow tracking-widest font-light opacity-50">
-                EST. TRAVEL TIME
-              </span>
-              <br />{" "}
-              <span className="font-bellefair text-2xl opacity-80">
-                {selectedTime} DAYS
-              </span>
-            </li>
-          </ul>
+          <div className="distance-and-time">
+            <NumberAnimation
+              finalDistance={selectedDistance}
+              finalTime={selectedTime}
+            />
+          </div>
         </div>
       </div>
     </>

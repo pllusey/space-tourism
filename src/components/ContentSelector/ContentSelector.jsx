@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import './ContentSelector.css'
 
 export default function ContentSelector({
   destinations,
@@ -17,16 +17,13 @@ export default function ContentSelector({
 }) {
   return (
     <>
-      <div>
+      <div className="font-barlow">
         {currentPage === "Destination" && (
           <>
             {destinations.map((destination) => (
-              <motion.button
-                whileHover={{
-                  
-                }}
+              <button
                 key={destination.id}
-                className="font-barlow font-light text-xl tracking-wider w-fit pr-[2vw] pb-3"
+                className="destination"
                 onClick={() => {
                   selectName(destination.name),
                     selectDescription(destination.description),
@@ -36,7 +33,7 @@ export default function ContentSelector({
                 }}
               >
                 {destination.name.toUpperCase()}
-              </motion.button>
+              </button>
             ))}
           </>
         )}
@@ -45,16 +42,16 @@ export default function ContentSelector({
           <>
             <ul className="flex justify-between">
               {crew.map((member) => (
-                <motion.button
+                <button
                   key={member.id}
-                  className="w-4 h-4 rounded-full bg-white bg-opacity-50"
+                  className="crew"
                   onClick={() => {
                     selectName(member.name),
                       selectDescription(member.description),
                       selectImage(member.image),
                       selectRole(member.role);
                   }}
-                ></motion.button>
+                ></button>
               ))}
             </ul>
           </>
@@ -63,8 +60,9 @@ export default function ContentSelector({
         {currentPage === "Technology" && (
           <>
             {technology.map((tech) => (
-              <motion.button
+              <button
                 key={tech.id}
+                className='technology'
                 onClick={() => {
                   selectName(tech.name),
                     selectDescription(tech.description),
@@ -72,7 +70,7 @@ export default function ContentSelector({
                 }}
               >
                 {tech.id + 1}
-              </motion.button>
+              </button>
             ))}
           </>
         )}

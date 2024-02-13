@@ -3,11 +3,9 @@ import { useState } from "react";
 
 export default function Technology({
   technology,
-  selectTechnology,
-  selectedTechnology,
   pageName,
 }) {
-  const currentPage = pageName
+  const currentPage = pageName;
 
   const { name, description, image } = technology;
   const [selectedName, setSelectedName] = useState(technology[0].name);
@@ -36,15 +34,17 @@ export default function Technology({
             <span className="pr-3 font-bold opacity-30">03</span> SPACE LAUNCH
             101
           </h3>
-          <div className="flex w-[50vw]">
-            <ContentSelector
-              technology={technology}
-              selectDescription={selectDescription}
-              selectName={selectName}
-              selectImage={selectImage}
-              currentPage={currentPage}
-            />
-            <div>
+          <div className="grid grid-flow-col min-h-[35vh] w-[50vw]">
+            <div className="font-bellefair flex justify-center items-center">
+              <ContentSelector
+                technology={technology}
+                selectDescription={selectDescription}
+                selectName={selectName}
+                selectImage={selectImage}
+                currentPage={currentPage}
+              />
+            </div>
+            <div className="">
               <h4 className="font-barlow text-xl tracking-widest font-extralight pb-5">
                 THE TERMINOLOGY...
               </h4>

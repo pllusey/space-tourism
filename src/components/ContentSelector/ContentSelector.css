@@ -1,0 +1,77 @@
+.destination {
+  margin-right: 1.5rem;
+  padding-bottom: 1rem;
+  font-weight: 100;
+  font-size: 1.2rem;
+  letter-spacing: 0.2rem;
+  position: relative;
+  transition: all 400ms ease;
+}
+
+.destination:hover {
+    transform: translateY(-.5rem);
+}
+
+.destination::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0.2rem;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background-color: #fff;
+  transition: cubic-bezier(.46,.1,.1,.87) 500ms;
+  opacity: .4;
+}
+
+.destination:focus::before {
+    opacity: 1;
+}
+
+.destination:hover::before,
+.destination:focus::before {
+    transform: scaleX(1);
+    transition: 300ms ease;
+}
+
+.crew {
+  height: 1rem;
+  width: 1rem;
+  background-color: #fff;
+  border-radius: 100%;
+  opacity: .5;
+  transition: 600ms ease;
+}
+
+.crew:hover {
+  scale: 1.1;
+  opacity: 1;
+}
+
+.technology {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, .2);
+  font-size: xx-large;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 100%;
+  transition: all 600ms ease;
+}
+
+.technology:nth-child(2) {
+  margin: 2rem 0;
+}
+
+.technology:hover {
+  border: 1px solid #fff;
+  box-shadow: 0 0 2px 5px rgba(255, 255, 255, .1f);
+}
+
+.technology:focus {
+  background-color: #fff;
+  color: #0B0D17;
+}
