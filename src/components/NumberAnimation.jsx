@@ -33,7 +33,7 @@ const NumberAnimation = ({ finalDistance, finalTime }) => {
   useEffect(() => {
     const updateTime = () => {
       const difference = finalTime - currentTime;
-      const step = Math.ceil(Math.abs(difference) / 20);
+      const step = Math.ceil(Math.abs(difference) / 2);
       updateValue(currentTime, finalTime, setCurrentTime, step);
     };
     const intervalRef = setInterval(updateTime, 70);
@@ -51,15 +51,16 @@ const NumberAnimation = ({ finalDistance, finalTime }) => {
   };
 
   const formatTime = (timeInDays) => {
-    const years = Math.ceil(timeInDays / 365);
-    const months = Math.floor(timeInDays / 30);
-    const remainingDays = timeInDays % 365;
-    if (years > 0) {
-      return `${years} YEARS`;
-    } else if (months > 12 || remainingDays > 30) {
-      return `${months} MONTHS`;
-    } else if (remainingDays < 30) {
-      return `${remainingDays} DAYS`;
+    const years = Math.floor(timeInDays / 365);
+    const months = Math.floor((timeInDays % 365) / 30);
+    const remainingDays = timeInDays % 30;
+
+    if (years > 0 && months < 12) {
+      return `${years} YEARS`
+    } else if (months < 12 && months > 0) {
+      return `${months} MONTHS`
+    } else if (remainingDays > 0) {
+      return `${remainingDays} DAYS`
     }
   };
 
@@ -74,7 +75,7 @@ const NumberAnimation = ({ finalDistance, finalTime }) => {
             AVG. DISTANCE
           </span>
           <br />
-          <span className="font-bellefair text-[2rem] opacity-80 ">
+          <span className="font-bellefair text-[1.5rem] opacity-80 ">
             {formattedDistance}
           </span>
         </li>
@@ -83,7 +84,7 @@ const NumberAnimation = ({ finalDistance, finalTime }) => {
             EST. TRAVEL TIME
           </span>
           <br />
-          <span className="font-bellefair text-[2rem] opacity-80">
+          <span className="font-bellefair text-[1.5rem] opacity-80">
             {formattedTime}
           </span>
         </li>

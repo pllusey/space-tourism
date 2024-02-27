@@ -1,5 +1,6 @@
 import ContentSelector from "../components/ContentSelector/ContentSelector";
 import { useState } from "react";
+import Inner from "../components/Inner/Inner";
 
 export default function Technology({
   technology,
@@ -27,16 +28,16 @@ export default function Technology({
   };
 
   return (
-    <>
+    <Inner>
       <div className="h-screen bg-technology-lg bg-cover bg-center">
-        <div className="ml-[12.5vw] h-screen">
-          <h3 className="font-barlow tracking-[0.25rem] pt-[30vh] text-3xl pb-[10vh]">
+        <div className="pl-[10vw] h-screen">
+          <h3 className="font-barlow tracking-[0.25rem] pt-[22vh] text-3xl pb-[10vh]">
             <span className="pr-3 font-bold opacity-30">03</span> SPACE LAUNCH
             101
           </h3>
-          <div className="grid grid-flow-col min-h-[35vh] w-[50vw]">
+          <div className="flex justify-around min-h-[50vh] pt-[2vh] w-[50vw]">
             <div className="font-bellefair flex justify-center items-center">
-              <ContentSelector
+            <ContentSelector
                 technology={technology}
                 selectDescription={selectDescription}
                 selectName={selectName}
@@ -45,13 +46,13 @@ export default function Technology({
               />
             </div>
             <div className="">
-              <h4 className="font-barlow text-xl tracking-widest font-extralight pb-5">
+              <h4 className="font-barlow text-xl tracking-widest font-extralight pb-5 ">
                 THE TERMINOLOGY...
               </h4>
-              <h1 className="font-bellefair text-6xl pb-6">
+              <h1 className="name font-bellefair text-6xl pb-6 min-w-[35vw]">
                 {selectedName.toUpperCase()}
               </h1>
-              <p className="text-lg font-extralight tracking-wide leading-loose w-[30vw]">
+              <p className="description text-lg font-extralight tracking-wide leading-loose w-[33vw]">
                 {selectedDescription}
               </p>
             </div>
@@ -60,9 +61,9 @@ export default function Technology({
         <img
           src={selectedImage}
           alt=""
-          className="absolute top-[30vh] right-0 h-[60vh] w-[35vw]"
+          className="image fixed top-[30vh] right-0 h-[60vh] w-[35vw]"
         />
       </div>
-    </>
+    </Inner>
   );
 }

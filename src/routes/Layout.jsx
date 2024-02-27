@@ -1,14 +1,11 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Layout({ data }) {
+  let { pathname } = useLocation();
   const { destinations, crew, technology } = data;
-  const [pages, setPages] = useState({
-    destinations: [],
-    crew: [],
-    technology: [],
-  });
 
   const [selectedDestination, setSelectedDestination] = useState(
     data.destinations[0]
@@ -29,18 +26,22 @@ export default function Layout({ data }) {
   };
 
   return (
-    <div className="text-white">
-      <header className="absolute w-screen h-[20vh]">
+    <>
+      <header className="absolute w-screen h-[20vh] z-20">
         <Navbar />
       </header>
-      <Outlet
-        selectDestination={selectDestination}
-        selectedDestination={selectedDestination}
-        selectCrew={selectCrew}
-        selectedCrew={selectedCrew}
-        selectTechnology={selectTechnology}
-        selectedTechnology={selectedTechnology}
-      />
-    </div>
+      <AnimatePresence mode="wait">
+          <main>
+            <Outlet
+              selectDestination={selectDestination}
+              selectedDestination={selectedDestination}
+              selectCrew={selectCrew}
+              selectedCrew={selectedCrew}
+              selectTechnology={selectTechnology}
+              selectedTechnology={selectedTechnology}
+            />
+          </main>
+      </AnimatePresence>
+    </>
   );
 }

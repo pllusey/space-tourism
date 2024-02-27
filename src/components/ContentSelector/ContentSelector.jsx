@@ -1,4 +1,5 @@
-import './ContentSelector.css'
+import "./ContentSelector.css";
+import { useEffect, useRef } from "react";
 
 export default function ContentSelector({
   destinations,
@@ -10,26 +11,30 @@ export default function ContentSelector({
   selectTime,
   selectDistance,
   selectRole,
-  selectDestination,
-  selectCrew,
-  selectTechnology,
   currentPage,
 }) {
+  useEffect(() => {
+    const firstButton = document.querySelector('.button-container button');
+    if (firstButton) {
+      firstButton.focus();
+    }
+  }, [currentPage]);
+
   return (
     <>
-      <div className="font-barlow">
+      <div className="font-barlow button-container">
         {currentPage === "Destination" && (
           <>
-            {destinations.map((destination) => (
+            {destinations.map((destination, index) => (
               <button
                 key={destination.id}
                 className="destination"
                 onClick={() => {
                   selectName(destination.name),
-                    selectDescription(destination.description),
-                    selectImage(destination.image),
-                    selectDistance(destination.distance),
-                    selectTime(destination.time);
+                  selectDescription(destination.description),
+                  selectImage(destination.image),
+                  selectDistance(destination.distance),
+                  selectTime(destination.time);
                 }}
               >
                 {destination.name.toUpperCase()}
@@ -47,9 +52,9 @@ export default function ContentSelector({
                   className="crew"
                   onClick={() => {
                     selectName(member.name),
-                      selectDescription(member.description),
-                      selectImage(member.image),
-                      selectRole(member.role);
+                    selectDescription(member.description),
+                    selectImage(member.image),
+                    selectRole(member.role);
                   }}
                 ></button>
               ))}
@@ -62,11 +67,11 @@ export default function ContentSelector({
             {technology.map((tech) => (
               <button
                 key={tech.id}
-                className='technology'
+                className="technology"
                 onClick={() => {
                   selectName(tech.name),
-                    selectDescription(tech.description),
-                    selectImage(tech.image);
+                  selectDescription(tech.description),
+                  selectImage(tech.image);
                 }}
               >
                 {tech.id + 1}

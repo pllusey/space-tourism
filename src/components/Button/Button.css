@@ -1,0 +1,19 @@
+.home-button {
+    background-color: #fff;
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 300ms ease;
+    /* box-shadow: 
+        0 0 0 4rem rgba(255, 255, 255, 0.1),
+        0 0 0 3rem rgba(255, 255, 255, 0.1),
+        0 0 0 2rem rgba(255, 255, 255, 0.1),
+        0 0 0 1rem rgba(255, 255, 255, 0.1);
+    -webkit-animation: pulse 1.5s infinite; */
+}
+
+.home-button:hover {
+    scale: 1.1;
+    box-shadow: 0 0 0 4rem rgba(255, 255, 255, 0.1);
+}
